@@ -3,21 +3,18 @@
  * This file is used to run database queries when installing
  * a modification
  *
- * Simple Machines Forum (SMF)
+ * (c) Jason Clemons <hello@jasonclemons.me>
  *
- * @package SMF
- * @author Simple Machines http://www.simplemachines.org
- * @copyright 2015 Simple Machines and individual contributors
- * @license http://www.simplemachines.org/about/smf/license.php BSD
- *
- * @version 2.1 Beta 2
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 if (file_exists(dirname(__FILE__) . '/SSI.php') && !defined('SMF')) {
    require_once(dirname(__FILE__) . '/SSI.php');
    db_extend('packages');
-} elseif(!defined('SMF'))
+} elseif(!defined('SMF')) {
    die('<strong>Error:</strong> Cannot install - please verify you put this file in the same place as SMF\'s SSI.php.');
+}
 
 /**
  * Create any database tables you may need here. Remember to set your indexes!
@@ -63,6 +60,17 @@ $smcFunc['db_create_table']('{db_prefix}table_name', $db_table_name, $db_table_n
 
 /**
  * Run any extra queries you may need here
+ * 
+ * Example:
+ * $smcFunc['db_query']('', '
+ *    SELECT {db_prefix}members
+ *    SET real_name = {string:realname}
+ *    WHERE id_member = {int:id_member}',
+ *    array(
+ *       'real_name' => $context['member_name'],
+ *       'id_member' => $context['id_member']
+ *    )
+ * );
  */
 
 
@@ -71,4 +79,3 @@ $smcFunc['db_create_table']('{db_prefix}table_name', $db_table_name, $db_table_n
  */
 if (SMF == 'SSI')
    echo 'Database changes are complete!';
-?>
