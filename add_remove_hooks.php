@@ -3,14 +3,10 @@
  * This file is used to run database queries when installing
  * a modification
  *
- * Simple Machines Forum (SMF)
+ * (c) Jason Clemons <hello@jasonclemons.me>
  *
- * @package SMF
- * @author Simple Machines http://www.simplemachines.org
- * @copyright 2015 Simple Machines and individual contributors
- * @license http://www.simplemachines.org/about/smf/license.php BSD
- *
- * @version 2.1 Beta 2
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 if (file_exists(dirname(__FILE__) . '/SSI.php') && !defined('SMF'))
