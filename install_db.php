@@ -3,7 +3,7 @@
  * This file is used to run database queries when installing
  * a modification
  *
- * (c) Jason Clemons <hello@jasonclemons.me>
+ * (c) Jason Clemons <jason@simplemachines.org>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -29,12 +29,12 @@ if (file_exists(dirname(__FILE__) . '/SSI.php') && !defined('SMF')) {
  *     'null' => false
  * );
  *
- * name:    name of the column you're creating
- * auto:    boolean value, indicates if column is AUTO_INCREMENT
- * default: set a default value, set false if not needed
- * type:    type of value (int, varchar, text, etc.)
- * size:    value size, in integer form
- * null:    boolean value, indicates if column is null
+ * name:    string   name of the column you're creating
+ * auto:    bool     indicates if column is AUTO_INCREMENT
+ * default: mixed    set a default value, set false if not needed
+ * type:    string   type of value (int, varchar, text, etc.)
+ * size:    int      value size (int, tinyint, etc.)
+ * null:    bool     indicates if column is null
  */
 $db_table_name[] = array();
 
@@ -47,8 +47,8 @@ $db_table_name[] = array();
  *     'type' => 'primary'
  * );
  *
- * columns: array of columns to set as indexes
- * type:    type of index (primary, index, fulltext, etc.)
+ * columns: array    columns to set as indexes
+ * type:    string   type of index (primary, index, fulltext, etc.)
  */
 $db_table_name_indexes[] = array();
 
